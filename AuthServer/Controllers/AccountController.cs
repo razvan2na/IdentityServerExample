@@ -106,12 +106,13 @@ namespace AuthServer.Controllers
 
             var result = await _userManager.CreateAsync(user, vm.Password);
 
-            if (result.Succeeded)
+            if (!result.Succeeded)
             {
-                await _signInManager.SignInAsync(user, isPersistent: true);
+                return BadRequest();
             }
+            await _signInManager.SignInAsync(user, isPersistent: true);
 
-            return BadRequest();
+            return Ok();
         }
     }
 }

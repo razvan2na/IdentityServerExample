@@ -20,7 +20,15 @@ namespace AuthServer.Configs
                     {
                         JwtClaimTypes.Role
                     }
-                }
+                },
+                new IdentityResource
+                {
+                    Name = "email",
+                    UserClaims =
+                    {
+                        JwtClaimTypes.Email
+                    }
+                },
             };
         }
 
@@ -31,7 +39,7 @@ namespace AuthServer.Configs
                 new ApiResource("flagsApi", "Flags API")
                 {
                     Scopes = { "flagsApi.read" },
-                    UserClaims = { JwtClaimTypes.Role }
+                    UserClaims = { JwtClaimTypes.Role, JwtClaimTypes.Email }
                 },
             };
         }
@@ -53,7 +61,7 @@ namespace AuthServer.Configs
                     ClientId = "flags",
                     ClientName = "Flags",
                     AllowedGrantTypes = GrantTypes.Implicit,
-                    AllowedScopes = { "openid", "profile", "flagsApi.read", "roles" },
+                    AllowedScopes = { "openid", "profile", "flagsApi.read", "roles", "email" },
                     RedirectUris = { "http://localhost:4200/auth-callback" },
                     PostLogoutRedirectUris = { "http://localhost:4200/" },
                     AllowedCorsOrigins = { "http://localhost:4200" },
