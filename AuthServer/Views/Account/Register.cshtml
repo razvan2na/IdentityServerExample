@@ -1,0 +1,32 @@
+﻿@model RegisterViewModel
+
+<form asp-route="Login">
+    <div>
+        <label asp-for="FirstName"></label>
+        <input placeholder="First Name" asp-for="FirstName">
+    </div>
+
+    <div>
+        <label asp-for="LastName"></label>
+        <input placeholder="Last Name" asp-for="LastName">
+    </div>
+
+    <div>
+        <label asp-for="Email"></label>
+        <input placeholder="Email" asp-for="Email">
+    </div>
+
+    <div>
+        <label asp-for="Password"></label>
+        <input type="password" placeholder="Password" asp-for="Password" autocomplete="off">
+    </div>
+
+    <div>
+        <label asp-for="PasswordConfirm"></label>
+        <input type="password" placeholder="Confirm Password" asp-for="PasswordConfirm" autocomplete="off">
+    </div>
+
+    <button type="submit" name="button" value="register">Register</button>
+</form>
+
+<partial name="_ValidationSummary" />

@@ -1,0 +1,19 @@
+﻿@model LoginViewModel
+
+<form asp-route="Login">
+    <input type="hidden" asp-for="ReturnUrl" />
+
+    <div>
+        <label asp-for="Email"></label>
+        <input placeholder="Email" asp-for="Email">
+    </div>
+
+    <div>
+        <label asp-for="Password"></label>
+        <input type="password" placeholder="Password" asp-for="Password" autocomplete="off">
+    </div>
+
+    <button type="submit" name="button" value="login">Login</button>
+</form>
+
+<partial name="_ValidationSummary" />
